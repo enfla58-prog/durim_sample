@@ -30,7 +30,15 @@
       let items = inputString.split(',')
       let index = Math.floor(Math.random() * items.length);
 
-      document.write("입력한 항목 ()")
+      document.write("<h3>입력한 항목 (총 " + items.length + "개):</h3>");
+      document.write("<p>" + inputString + "</p>");
+      document.write("<hr>");
+      document.write("<h3> 당신의 선택은...</h3>");
+
+      let choice = items[index].trim();
+      document.write("<h1> " + choice + " !!!!</h1>");
+      document.write("<p><i>새로고침을 눌러 다시 뽑을 수 있습니다.</i></p>");
+
 
     
     
