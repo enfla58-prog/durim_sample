@@ -6,12 +6,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>인터넷활용 실습 템플릿</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 10px;
+      background-color: #4a90e2;
+      color: white;
+      border-bottom: 4px solid #357ABD;
+    }
+
+    .subtitle {
+      margin-top: -10px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f8f9fa;
+      padding: 12px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #4a90e2;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px 35px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #333;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #f1f1f1;
+      margin-top: 40px;
+      font-size: 13px;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+
 </head>
 
 <body>
   <header>
-    <h1>이름: (여기에 추가)</h1>
-    <p class="subtitle">한 줄 소개: (여기에 추가)</p>
+    <h1>이름: 김두림</h1>
+    <p class="subtitle">한 줄 소개: 25학번</p>
   </header>
   <nav>
     <a href="index.html">Home</a>
@@ -25,30 +106,27 @@
 
       <script>
         let now = new Date();
-
-        let yearStr = prompt("목표 연도를 입력하세요.(예: 2026)")
+        let yearStr = prompt("목표 연도를 입력하세요.(예: 2026)");
         let monthStr = prompt("목표 월을 입력하세요.(예: 1)");
         let dayStr = prompt("목표 일을 입력하세요.(예: 1)");
 
-        if (!yearStr || !monthStr || !dayStr) { document.write("<h3>계산을 취소했습니다.</h3>"); }
-        else {
+        if (!yearStr || !monthStr || !dayStr) {
+          document.write("<h3>계산을 취소했습니다.</h3>");
+        } else {
           let targetDate = new Date(yearStr, monthStr - 1, dayStr);
-
           let diffMs = targetDate.getTime() - now.getTime();
-
           let diffDay = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
           document.write("<h3>목표 날짜: " + targetDate.toLocaleString() + "</h3>");
 
-          if (diffDay === 0) { document.write("<h3> D-Day 입니다!</h3>"); }
-          else if (diffDay > 0) { document.write("<h3> D-" + diffDay + "일 남았습니다.</h3>"); }
-          else { document.write("<h3> D+" + Math.abs(diffDay) + "일 지났습니다.</h3>"); }
+          if (diffDay === 0) document.write("<h3>D-Day 입니다!</h3>");
+          else if (diffDay > 0) document.write("<h3>D-" + diffDay + "일 남았습니다.</h3>");
+          else document.write("<h3>D+" + Math.abs(diffDay) + "일 지났습니다.</h3>");
 
           document.write("<hr>");
           document.write("<p>오늘 날짜: " + now.toLocaleString() + "</p>");
           document.write("<p><i>새로고침을 눌러 다시 계산할 수 있습니다.</i></p>");
         }
-
       </script>
 
     </section>

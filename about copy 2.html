@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>댓글 추가/삭제</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      padding: 32px;
+      background-color: #f0f6ff;
+      color: #1a1a1a;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #a9d8ff;
+      margin: 5px 0;
+      padding: 10px;
+      border-bottom: 1px solid #7fb9e3;
+      cursor: pointer;
+      color: #003f63;
+    }
+
+    li:hover {
+      background-color: #ffcccc;
+      color: #8a0033;
+    }
+
+    li:hover::after {
+      content: " (클릭하여 삭제)";
+      color: rgb(216, 0, 119);
+      font-size: 0.5em;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 12px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function addComment() {
+      var inputStr = prompt("추가할 댓글 내용을 입력하세요:", "흥미로운 내용이에요!");
+      if (inputStr == null || inputStr.trim() == "") {
+        return;
+      }
+
+      var parent = document.getElementById("commentList");
+
+      var newLi = document.createElement("li");
+      newLi.innerHTML = inputStr;
+
+      newLi.onclick = function () {
+        var p = this.parentElement;
+        p.removeChild(this);
+      }
+
+      parent.appendChild(newLi);
+    }
+  </script>
+</head>
+
+<body onload="addComment()">
+  <h3>댓글 추가/삭제 프로그램</h3>
+  <p>아래 댓글을 클릭하면 해당 글이 삭제됩니다.</p>
+
+  <button onclick="addComment()"> 댓글 쓰기</button>
+
+  <ul id="commentList"></ul>
+
+</body>
+
+</html>
